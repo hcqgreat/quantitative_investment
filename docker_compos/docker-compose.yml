@@ -35,12 +35,13 @@ services:
     restart: always
 
   ubuntu:
-#    image: ubuntu:18.04
-    build: ./add_jenkins_node/
+    image: ubuntu:18.04
+#    build: ./add_jenkins_node/
     container_name: jenkins_service_1
     network_mode: 'host'
     volumes:
     - '/Users/hcq/docker:/tmp/'
+    - './add_jenkins_node.sh:/add_jenkins_node.sh' #进入容器执行该脚本
     command: /bin/bash
     tty: true
     restart: always
